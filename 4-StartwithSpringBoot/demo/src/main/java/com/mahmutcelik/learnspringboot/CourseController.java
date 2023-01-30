@@ -12,9 +12,6 @@ import java.util.List;
 
 @RestController
 public class CourseController {
-
-
-
     /**
      * RETURN OLARAK LIST DONDURUYORUZ FAKAT SPRING BOOT UN BIZE SAGLADIGI FAYDALARDAN BIRI OLAN
      * JSON CONVERSION SAYESINDE LIST JSON FORMATINA DONUSTURULUYOR VE POSTMANDE BAKTIGIMIZ ZAMAN LIST I
@@ -35,6 +32,7 @@ public class CourseController {
     @RequestMapping("/request")
     public List<Course> retrieveAllCourses() {
         return new ArrayList<>(List.of(new Course[]{
+                new Course(1, "Learn SPRING BOOT", "MAHMUT CELIK"),
                 new Course(1, "Learn SPRING BOOT", "MAHMUT CELIK"),
                 new Course(2, "Learn HTML", "ELA CELIK")}));
     }
