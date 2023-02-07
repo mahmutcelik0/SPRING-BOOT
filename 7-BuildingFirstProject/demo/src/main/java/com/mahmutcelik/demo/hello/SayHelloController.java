@@ -1,10 +1,11 @@
 package com.mahmutcelik.demo.hello;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("api/v1")
 public class SayHelloController {
     @GetMapping("say-hello")
@@ -12,7 +13,7 @@ public class SayHelloController {
         return "Hello! What are you learning today?";
     }
 
-    //RETURN HTML as response with hardcoded way (Bad situation)
+    //RETURN HTML as response with hardcoded way (Bad situation)(We will use views)
     @GetMapping("say-hello-html")
     public String sayHelloHtml(){
         StringBuffer sb = new StringBuffer();
@@ -29,5 +30,9 @@ public class SayHelloController {
         return sb.toString();
     }
 
+    @GetMapping("say-hello-jsp")
+    public String sayHelloJsp(){
+        return "sayHello";
+    }
 
 }
