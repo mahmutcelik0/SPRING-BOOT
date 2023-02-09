@@ -1,21 +1,19 @@
 package com.mahmutcelik.demo.todo;
 
-import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
 
 
 //FIRSTLY WE WILL MAKE IT IN STATIC LIST AFTER THAT IN H2 DB and FINALLY IN REAL DATABASE LIKE MYSQL
 
 public class Todo {
-    private int it;
+    private int id;
     private String username;
     private String description;
     private LocalDate targetDate; //LocalDate kullanılaması önerilir (Date yerine)
     private Boolean done;
 
-    public Todo(int it, String username, String description, LocalDate targetDate, Boolean done) {
-        this.it = it;
+    public Todo(int id, String username, String description, LocalDate targetDate, Boolean done) {
+        this.id = id;
         this.username = username;
         this.description = description;
         this.targetDate = targetDate;
@@ -24,7 +22,7 @@ public class Todo {
     @Override
     public String toString() {
         return "Todo{" +
-                "it=" + it +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", description='" + description + '\'' +
                 ", targetDate=" + targetDate +
@@ -32,12 +30,12 @@ public class Todo {
                 '}';
     }
 
-    public int getIt() {
-        return it;
+    public int getId() {
+        return id;
     }
 
-    public void setIt(int it) {
-        this.it = it;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
