@@ -1,20 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<%@include file="common/header.jspf"%>
+<%@include file="common/navbar.jspf"%>
 
-    <link rel="stylesheet" href="webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+<div class="container">
 
-</head>
-<body>
-
-    <div class="container">
         <h2>LIST TODOS PAGE</h2>
 
         <table class="table">
@@ -24,6 +13,8 @@
                     <th>Description</th>
                     <th>Target Date</th>
                     <th>Is Done?</th>
+                    <th>Delete</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,19 +24,14 @@
                         <td>${todo.description}</td>
                         <td>${todo.targetDate}</td>
                         <td>${todo.done}</td>
+                        <td><a href="delete-todo?id=${todo.id}" class="btn btn-danger">Delete</a></td>
+                        <td><a href="update-todo?id=${todo.id}" class="btn btn-warning">Update</a></td>
+
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-
         <a href="add-todo" class="btn btn-success">Add New</a>
-
     </div>
-
-
-    <script src="webjars/jquery/3.6.2/jquery.min.js"></script>
-    <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-
-</body>
-</html>
-
+    
+    <%@include file="common/footer.jspf"%>

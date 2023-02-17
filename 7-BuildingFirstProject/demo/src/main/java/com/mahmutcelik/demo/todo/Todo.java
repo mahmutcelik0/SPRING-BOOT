@@ -1,16 +1,31 @@
 package com.mahmutcelik.demo.todo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 
 //FIRSTLY WE WILL MAKE IT IN STATIC LIST AFTER THAT IN H2 DB and FINALLY IN REAL DATABASE LIKE MYSQL
 
+@Entity
 public class Todo {
+    @Id
+    @GeneratedValue
     private int id;
+    @Column(name = "name")
     private String username;
+
+    @Size(min = 10, message = "Enter at least 10 character")
     private String description;
     private LocalDate targetDate; //LocalDate kullanılaması önerilir (Date yerine)
     private Boolean done;
+
+    public Todo() {
+    }
 
     public Todo(int id, String username, String description, LocalDate targetDate, Boolean done) {
         this.id = id;

@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationService {
-    private Logger logger = LoggerFactory.getLogger(getClass());
-    public boolean isValid(String name,String password){
-        logger.debug(String.valueOf(name.equalsIgnoreCase("mahmut") && password.equalsIgnoreCase("12345678")));
-        return (name.equalsIgnoreCase("mahmut") && password.equalsIgnoreCase("12345678"));
-    }
+
+    //BEFORE SPRING SECURITY
+//    private Logger logger = LoggerFactory.getLogger(getClass());
+//    public boolean isValid(String name,String password){
+//        logger.debug(String.valueOf(name.equalsIgnoreCase("mahmut") && password.equalsIgnoreCase("12345678")));
+//        return (name.equalsIgnoreCase("mahmut") && password.equalsIgnoreCase("12345678"));
+//    }
 }
