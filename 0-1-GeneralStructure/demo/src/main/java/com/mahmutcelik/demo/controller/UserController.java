@@ -2,11 +2,9 @@ package com.mahmutcelik.demo.controller;
 
 import com.mahmutcelik.demo.dto.UserDto;
 import com.mahmutcelik.demo.facade.UserFacade;
+import com.mahmutcelik.demo.model.User;
 import com.mahmutcelik.demo.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,26 @@ public class UserController {
     @GetMapping("/{username}")
     private UserDto getUserByUsername(@PathVariable("username") String username){
         return userFacade.getUserByUsername(username);
+    }
+
+    @DeleteMapping
+    private void deleteAllUsers(){
+        userService.deleteAllUsers();
+    }
+
+    @DeleteMapping("/{username}")
+    private UserDto deleteUserByUsername(@PathVariable("username") String username){
+        return userFacade.deleteUserByUsername(username);
+    }
+
+    @PostMapping
+    private UserDto addNewUser(@RequestBody User user){
+        return userService.addNewUser(user);
+    }
+
+    @PutMapping("/{username}")
+    private UserDto updateByUsername(@PathVariable("username") String username,@RequestBody User user){
+        return userFacade.updateByUsername(username,user);
     }
 
 
