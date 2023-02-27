@@ -9,5 +9,5 @@ public interface UserFacade {
 
     UserDto deleteUserByUsername(String username) throws UserNotFoundException;
 
-    UserDto updateByUsername(String username, User user);
+    UserDto updateByUsername(String username,User user);
 }
