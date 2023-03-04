@@ -25,7 +25,7 @@ public class User {
 
     private Long locationid;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locationid",insertable = false,updatable = false)
     @JsonIgnore
     private Location location;

@@ -23,7 +23,7 @@ public class Post {
     private String details;
 
     private Long userid;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userid",updatable = false,insertable = false)
     @JsonIgnore
     private User user;
