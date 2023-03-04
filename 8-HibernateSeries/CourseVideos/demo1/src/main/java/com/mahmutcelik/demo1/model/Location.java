@@ -1,5 +1,6 @@
 package com.mahmutcelik.demo1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,5 +22,6 @@ public class Location {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "location")
+    @JsonIgnore
     private List<User> users;
 }
