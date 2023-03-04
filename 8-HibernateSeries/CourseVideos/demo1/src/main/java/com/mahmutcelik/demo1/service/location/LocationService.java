@@ -9,4 +9,10 @@ public interface LocationService {
     List<Location> getAllUsers() throws LocationNotFoundException;
 
     Location getLocationById(Long id) throws LocationNotFoundException;
+
+    Location addNewLocation(Location location);
+
+    Location updateExistLocation(Location location, Long id) throws LocationNotFoundException;
+
+    void deleteLocation(Long id);
 }

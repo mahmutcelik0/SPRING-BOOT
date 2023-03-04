@@ -26,4 +26,19 @@ public class LocationServiceImpl implements LocationService{
     public Location getLocationById(Long id) throws LocationNotFoundException {
         return locationRepository.findById(id).orElseThrow(LocationNotFoundException::new);
     }
+
+    @Override
+    public Location addNewLocation(Location location) {
+        return locationRepository.save(location);
+    }
+
+    @Override
+    public Location updateExistLocation(Location location, Long id) throws LocationNotFoundException {
+        return locationRepository.findById(id).map(e -> locationRepository.save(location)).orElseThrow(LocationNotFoundException::new);
+    }
+
+    @Override
+    public void deleteLocation(Long id) {
+        locationRepository.deleteById(id);
+    }
 }

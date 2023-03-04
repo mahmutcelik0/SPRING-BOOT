@@ -10,4 +10,10 @@ public interface PostService {
     List<Post> getAllPosts() throws PostNotFoundException;
 
     Post getPostById(Long id) throws PostNotFoundException;
+
+    Post addNewPost(Post post);
+
+    Post updatePost(Long id, Post post) throws PostNotFoundException;
+
+    void deletePost(Long id);
 }

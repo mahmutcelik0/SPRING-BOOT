@@ -22,7 +22,9 @@ public class Post {
     private LocalDateTime postDate;
     private String details;
 
+    private Long userid;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid",updatable = false,insertable = false)
+    @JsonIgnore
     private User user;
 }

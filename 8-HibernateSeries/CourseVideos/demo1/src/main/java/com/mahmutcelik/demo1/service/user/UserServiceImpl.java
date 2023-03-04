@@ -26,4 +26,19 @@ public class UserServiceImpl implements UserService{
     public User getUserById(Long id) throws UserNotFoundException{
         return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
+
+    @Override
+    public User addNewUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(Long id, User user) throws UserNotFoundException {
+        return userRepository.findById(id).map(e -> userRepository.save(user)).orElseThrow(UserNotFoundException::new);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
 }

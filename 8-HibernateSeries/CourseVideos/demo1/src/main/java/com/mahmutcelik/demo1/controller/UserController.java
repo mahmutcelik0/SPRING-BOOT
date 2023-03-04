@@ -1,12 +1,10 @@
 package com.mahmutcelik.demo1.controller;
 
 import com.mahmutcelik.demo1.exception.UserNotFoundException;
+import com.mahmutcelik.demo1.model.Post;
 import com.mahmutcelik.demo1.model.User;
 import com.mahmutcelik.demo1.service.user.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,4 +27,25 @@ public class UserController {
     private User getUserById(@PathVariable Long id) throws UserNotFoundException {
         return userService.getUserById(id);
     }
+
+    @GetMapping("/user/{id}/posts")
+    private List<Post> getPostsofUser(@PathVariable Long id) throws UserNotFoundException {
+        return userService.getUserById(id).getPosts();
+    }
+
+    @PostMapping("/user")
+    private User addNewUser(@RequestBody User user){
+        return userService.addNewUser(user);
+    }
+
+    @PutMapping("/user/{id}")
+    private User updateUser(@PathVariable("id") Long id,User user) throws UserNotFoundException {
+        return userService.updateUser(id,user);
+    }
+
+    @DeleteMapping("/user/{id}")
+    private void deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+    }
+
 }

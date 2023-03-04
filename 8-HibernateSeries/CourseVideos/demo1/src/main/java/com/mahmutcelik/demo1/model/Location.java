@@ -22,6 +22,5 @@ public class Location {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "location")
-    @JsonIgnore
     private List<User> users;
 }

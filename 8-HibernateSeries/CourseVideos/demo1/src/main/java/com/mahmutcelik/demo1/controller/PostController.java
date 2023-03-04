@@ -5,10 +5,7 @@ import com.mahmutcelik.demo1.exception.PostNotFoundException;
 import com.mahmutcelik.demo1.exception.UserNotFoundException;
 import com.mahmutcelik.demo1.model.Post;
 import com.mahmutcelik.demo1.service.post.PostService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,20 @@ public class PostController {
     @GetMapping("/post/{id}")
     private Post getPostById(@PathVariable Long id) throws PostNotFoundException {
         return postService.getPostById(id);
+    }
+
+    @PostMapping("/post")
+    private Post addNewPost(@RequestBody Post post){
+        return postService.addNewPost(post);
+    }
+
+    @PutMapping("/post/{id}")
+    private Post updatePost(@PathVariable("id") Long id,@RequestBody Post post) throws PostNotFoundException {
+        return postService.updatePost(id,post);
+    }
+
+    @DeleteMapping("/post/{id}")
+    private void deletePost(@PathVariable("id") Long id){
+        postService.deletePost(id);
     }
 }

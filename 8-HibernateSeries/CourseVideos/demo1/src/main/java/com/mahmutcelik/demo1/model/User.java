@@ -23,12 +23,15 @@ public class User {
     private String lastName;
     private String email;
 
+    private Long locationid;
+
     @ManyToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "locationid",insertable = false,updatable = false)
+    @JsonIgnore
     private Location location;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
-    @JsonIgnore
     private List<Post> posts;
+
 
 }
