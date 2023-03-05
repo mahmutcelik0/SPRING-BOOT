@@ -23,4 +23,19 @@ public class UserServiceImpl implements UserService{
     public Users getUserById(Long id) {
         return userRepository.findById(id).get();
     }
+
+    @Override
+    public Users addNewUser(Users user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public Users updateUser(Users user, Long id) {
+        return userRepository.findById(id).map(e-> userRepository.save(user)).orElseThrow(RuntimeException::new);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
 }

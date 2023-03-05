@@ -2,10 +2,7 @@ package com.mahmutcelik.demo2onetoone.controller;
 
 import com.mahmutcelik.demo2onetoone.model.Users;
 import com.mahmutcelik.demo2onetoone.service.user.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,4 +24,20 @@ public class UserController {
     private Users getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
+
+    @PostMapping("/user")
+    private Users addNewUser(@RequestBody Users user){
+        return userService.addNewUser(user);
+    }
+
+    @PutMapping("/user/{id}")
+    private Users updateUser(@RequestBody Users user, @PathVariable Long id){
+        return userService.updateUser(user,id);
+    }
+
+    @DeleteMapping("/user/{id}")
+    private void deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+    }
+
 }
