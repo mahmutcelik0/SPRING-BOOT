@@ -22,4 +22,6 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 
+//    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
+//    private List<Student> students;
 }
