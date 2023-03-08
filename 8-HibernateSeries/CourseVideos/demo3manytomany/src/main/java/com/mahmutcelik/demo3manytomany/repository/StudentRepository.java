@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student,Long> {
-//    @Query("select u from Student u JOIN Course c")
-//    List<Student> getStudents();
+    @Query("select u, un from Student u JOIN u.courses un")
+    List<Object> getJoinResult();
 }

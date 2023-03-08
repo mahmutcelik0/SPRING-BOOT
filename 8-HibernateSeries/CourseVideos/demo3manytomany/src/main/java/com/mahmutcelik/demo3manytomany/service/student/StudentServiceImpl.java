@@ -5,6 +5,7 @@ import com.mahmutcelik.demo3manytomany.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -22,5 +23,10 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudentById(Long id) {
         return studentRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Object> getJoinResults() {
+        return studentRepository.getJoinResult();
     }
 }

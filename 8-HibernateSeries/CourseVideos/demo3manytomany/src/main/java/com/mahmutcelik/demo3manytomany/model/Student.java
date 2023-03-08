@@ -19,8 +19,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "course_id")
-    private Long courseId;
+
     @ManyToMany
     @JsonIgnore
     @JoinTable(
@@ -30,8 +29,6 @@ public class Student {
     )
     private List<Course> courses;
 
-//    @ManyToOne
-//    @JsonIgnore
-//    @JoinColumn(insertable = false,updatable = false,name = "course_id")
-//    private Course course;
+    private String studentName;
+
 }

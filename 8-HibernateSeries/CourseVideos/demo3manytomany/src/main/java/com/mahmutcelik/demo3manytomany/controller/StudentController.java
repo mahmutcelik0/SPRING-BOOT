@@ -14,11 +14,9 @@ import java.util.List;
 @RequestMapping("/api/v1/student")
 public class StudentController {
     private final StudentService studentService;
-//    private final StudentRepository studentRepository;
 
     public StudentController(StudentService studentService, StudentRepository studentRepository) {
         this.studentService = studentService;
-//        this.studentRepository = studentRepository;
     }
 
     @GetMapping
@@ -26,14 +24,15 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-//    @GetMapping("/normal")
-//    private List<Student> getNormal(){
-//        return studentRepository.findAll();
-//    }
 
     @GetMapping("/{id}")
     private Student getStudentById(@PathVariable Long id){
         return studentService.getStudentById(id);
+    }
+
+    @GetMapping("/join")
+    private List<Object> getJoinResults(){
+        return studentService.getJoinResults();
     }
 
 }
